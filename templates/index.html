@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Secure Military Communication</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<main class="container">
+  <header>
+    <p class="eyebrow">CRYPTOGRAPHY & SECURITY LAB</p>
+    <h1>Secure Military Communication</h1>
+    <p class="subtitle">Encryption, decryption, integrity verification and cryptanalysis in one platform.</p>
+  </header>
+
+  <section class="grid-two">
+    <article class="card">
+      <div class="section-title"><span class="badge encrypt">01</span><div><h2>Encrypt Message</h2><p>Convert plaintext into ciphertext.</p></div></div>
+      <label for="encMessage">Plaintext</label>
+      <textarea id="encMessage" placeholder="Enter the message to encrypt..."></textarea>
+      <div class="row">
+        <div><label for="encAlgorithm">Cipher</label><select id="encAlgorithm"></select></div>
+        <div id="encKeyWrap"><label for="encKey">Key</label><input id="encKey" value="3" placeholder="3"></div>
+      </div>
+      <button id="encryptBtn">Encrypt</button>
+      <div class="result"><div class="result-header"><span>CIPHERTEXT</span><button class="mini" data-copy="encOutput">Copy</button></div><pre id="encOutput">Encrypted result will appear here.</pre></div>
+      <div class="hashline">SHA-256: <code id="encHash">—</code></div>
+    </article>
+
+    <article class="card">
+      <div class="section-title"><span class="badge decrypt">02</span><div><h2>Decrypt Message</h2><p>Recover plaintext from ciphertext.</p></div></div>
+      <label for="decMessage">Ciphertext</label>
+      <textarea id="decMessage" placeholder="Paste the encrypted message..."></textarea>
+      <div class="row">
+        <div><label for="decAlgorithm">Cipher</label><select id="decAlgorithm"></select></div>
+        <div id="decKeyWrap"><label for="decKey">Key</label><input id="decKey" value="3" placeholder="3"></div>
+      </div>
+      <button id="decryptBtn" class="secondary">Decrypt</button>
+      <div class="result"><div class="result-header"><span>PLAINTEXT</span><button class="mini" data-copy="decOutput">Copy</button></div><pre id="decOutput">Decrypted result will appear here.</pre></div>
+      <div class="hashline">Recovered SHA-256: <code id="decHash">—</code></div>
+    </article>
+  </section>
+
+  <section class="card attack">
+    <div class="section-title"><span class="badge attack-badge">03</span><div><h2>Cryptanalysis Attack Lab</h2><p>Demonstrate why Caesar Cipher is vulnerable to brute-force attacks.</p></div></div>
+    <textarea id="attackMessage" placeholder="Paste Caesar ciphertext here..."></textarea>
+    <button id="attackBtn" class="danger">Run Brute-Force Attack</button>
+    <div id="attackResults" class="attack-results"></div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span class="badge">04</span><div><h2>Message Integrity</h2><p>Generate a SHA-256 fingerprint for tamper detection.</p></div></div>
+    <textarea id="hashMessage" placeholder="Enter any message..."></textarea>
+    <button id="hashBtn">Generate SHA-256</button>
+    <div class="result"><pre id="hashOutput">Hash will appear here.</pre></div>
+  </section>
+
+  <section class="info-grid">
+    <article><h3>Supported Ciphers</h3><p>Caesar, Vigenère, Atbash and ROT13. The application keeps encryption and decryption workflows separate.</p></article>
+    <article><h3>Security Note</h3><p>These classical ciphers are educational demonstrations. They are not suitable for real military or production security.</p></article>
+  </section>
+
+  <footer>Academic Project • Secure Communication & Cryptanalysis • v2.0</footer>
+</main>
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
